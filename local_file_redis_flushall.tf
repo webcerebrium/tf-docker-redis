@@ -3,7 +3,7 @@ resource "local_file" "redis_flushall" {
    content = <<EOF
 #!/usr/bin/env bash
 set -ex
-docker exec -it redis-${local.postfix} redis-cli flushall
+docker exec -it redis-${local.postfix} redis-cli $@ flushall
 
 EOF
    filename = "./bin/redis-flushall.sh"
